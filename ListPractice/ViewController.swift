@@ -31,11 +31,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.textLabel?.text = emojis[indexPath.row]
         return cell
     }
-    //for when someone clicks it will segue to detail page
+    //for when someone clicks it will segue to detail page. sends this info to the detailed view
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier:"moveSegue", sender: "sent")
+        let emoji = emojis[indexPath.row]
+        performSegue(withIdentifier:"moveSegue", sender: emoji)
     }
-
+    //segue send out
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailVC = segue.destination as! DetailViewController
+        detailVC.emoji = sender as! String
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
