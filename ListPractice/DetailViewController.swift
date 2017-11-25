@@ -10,26 +10,17 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    var emoji = "no emoji"
+    var emoji = Emoji()
     @IBOutlet weak var emojiImg: UILabel!
     @IBOutlet weak var emojiInfo: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(emoji)
+    
         // Do any additional setup after loading the view.
-        emojiImg.text = emoji
-        if (emoji == "🐭"){
-            emojiInfo.text = "mouse"
-        }
-        else if (emoji == "🐸"){
-            emojiInfo.text = "frog"
-        }
-        else if (emoji == "🐵"){
-            emojiInfo.text = "monkey"
-        }
-       
+        emojiImg.text = emoji.emojiImg
+        emojiInfo.text = emoji.emojiInfo
         
         
     }
