@@ -31,7 +31,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.textLabel?.text = emojis[indexPath.row]
         return cell
     }
-
+    //for when someone clicks it will segue to detail page
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier:"moveSegue", sender: "sent")
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
